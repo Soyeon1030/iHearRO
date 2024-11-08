@@ -1,0 +1,69 @@
+// 공통 변수
+// 색상
+$white: #ffffff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #f0f0f0 !default;
+$gray-300: #e7e7e7 !default;
+$gray-400: #dcdcdc !default;
+$gray-500: #bfbfbf !default;
+$gray-600: #848586 !default;
+$gray-700: #595a5a !default;
+$gray-800: #393b3d !default;
+$gray-900: #1c1c1c !default;
+$black: #000000 !default;
+$primary-color: #F04F23;
+$secondary-color: #171133;
+$bg-color: #FCF8F1;
+$colors: (
+  light: (
+    bg-color: $white,
+    text-color: $gray-800,
+    background-image: url("/img/logo-color.png") no-repeat,
+  ),
+  dark: (
+    bg-color: $gray-800,
+    text-color: $white,
+    background-image: url("/img/logo-color_.png") no-repeat,
+  ),
+);
+// 사이즈
+$breakpoints: (
+  'mobile-s': 360px,    // 작은 모바일 (iPhone SE 등)
+  'mobile': 576px,      // 일반 모바일
+  'tablet': 768px,      // 태블릿 세로
+  'tablet-l': 992px,    // 태블릿 가로
+  'laptop': 1200px,     // 작은 노트북
+  'desktop': 1400px,    // 데스크탑
+  'desktop-l': 1600px   // 큰 디스크탑
+);
+
+// 폰트사이즈
+$font-sizes: (
+  '14': 0.875rem,    // 14px
+  '16': 1rem,        // 16px - 기본 폰트 사이즈
+  '18': 1.125rem,    // 18px
+  '20': 1.25rem,     // 20px
+  '24': 1.5rem,      // 24px
+  '32': 2rem,        // 32px
+  '48': 3rem,        // 48px
+  '64': 4rem,        // 64px
+  '80': 5rem,        // 80px
+  '200': 12.5rem     // 200px - line-txt 용
+);
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800
+);
+
+// Spacing system
+$spacing: (
+  'xs': 0.5rem,    // 8px
+  'sm': 1rem,      // 16px
+  'md': 1.25rem,   // 20px
+  'lg': 1.5rem,    // 24px
+  'xl': 2rem,      // 32px
+  '2xl': 3rem      // 48px
+);
