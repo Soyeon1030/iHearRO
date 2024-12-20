@@ -46,18 +46,20 @@
 /
 ├── src/
 │   ├── scss/
-│   │   ├── abstracts/        # 변수, 믹스인 등
+│   │   ├── abstracts/       # 변수, 믹스인 등
 │   │   │   ├── _variables.scss
 │   │   │   └── _mixins.scss
 │   │   ├── base/            # 기본 스타일
 │   │   │   ├── _reset.scss
 │   │   │   ├── _typography.scss
-│   │   │   └── _base.scss
+│   │   │   ├── _base.scss
+│   │   ├── page/            # 페이지 디자인
+│   │   │   └── _iHearRO.scss
 │   │   └── main.scss        # 메인 SCSS 파일
 │   ├── js/
 │   │   └── common.js        # 공통 JavaScript
 │   └── img/                 # 이미지 리소스
-├── index.html              # 메인 HTML 파일
+├── index.html               # 메인 HTML 파일
 └── README.md
 ```
 
