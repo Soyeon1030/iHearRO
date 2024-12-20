@@ -58,6 +58,7 @@
 │   │   └── main.scss        # 메인 SCSS 파일
 │   ├── js/
 │   │   └── common.js        # 공통 JavaScript
+│   ├── font/                # 폰트 파일
 │   └── img/                 # 이미지 리소스
 ├── index.html               # 메인 HTML 파일
 └── README.md
