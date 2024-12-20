@@ -286,16 +286,8 @@ document.addEventListener("DOMContentLoaded", function () {
       disable: function() {
         return window.innerWidth < 768; // 모바일에서 비활성화
       },
-      mirror: false, // 요소가 뷰포트를 벗어날 때 애니메이션 반복하지 않음
     });
   }
-
-  // 페이지 로드 완료 시 AOS 백업 초기화
-  window.addEventListener('load', function() {
-    if (!isIntroPlaying) {
-      initAOS();
-    }
-  });
   
   // 초기 설정
   disableScroll();
