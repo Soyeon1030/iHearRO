@@ -701,8 +701,29 @@ header {
       display: none;
     }
     .tip {
-      left: 5rem !important;
-      bottom: -15rem;
+      position: relative;
+      width: 411px;
+      height: 411px;
+      left: 0 !important;
+      bottom: 0;
+      .tip-tit {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        h2 {
+          width: 100%;
+        }
+      }
+      .bg {
+        right: 0;
+        bottom: -3rem;
+      }
+    }
+    .FAQ {
+      width: 100%;
+      margin-top: 3rem;
+
     }
   }
 }

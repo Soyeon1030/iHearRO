@@ -1633,8 +1633,28 @@ header .logo.active {
     display: none;
   }
   .sec7 .tip {
-    left: 5rem !important;
-    bottom: -15rem;
+    position: relative;
+    width: 411px;
+    height: 411px;
+    left: 0 !important;
+    bottom: 0;
+  }
+  .sec7 .tip .tip-tit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .sec7 .tip .tip-tit h2 {
+    width: 100%;
+  }
+  .sec7 .tip .bg {
+    right: 0;
+    bottom: -3rem;
+  }
+  .sec7 .FAQ {
+    width: 100%;
+    margin-top: 3rem;
   }
 }
 
