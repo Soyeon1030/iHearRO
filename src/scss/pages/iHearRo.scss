@@ -637,14 +637,14 @@ header {
     border-radius: 1.5rem;
     background: #FCF8F5;
     h2 {
-      @include responsive-font('24', 800, '20', 800);
+      @include responsive-font('24', 700, '20', 700);
       margin-bottom: 1rem;
       color: #56302A;
-      font-family: 'MaplestoryBold';
+      font-family: 'MaplestoryBold', MaplestoryOTFBold;
     }
     p {
       max-width: none;
-      font-family: 'MaplestoryLight';
+      font-family: 'MaplestoryLight', MaplestoryOTFLight;
       color: #7e706e;
       span {
         font-weight: 400;
@@ -662,7 +662,7 @@ header {
     h2 {
       @include responsive-font('20', 400, '18');
       margin-bottom: 1rem;
-      font-family: 'MaplestoryLight';
+      font-family: 'MaplestoryLight', MaplestoryOTFLight;
       color: #56302A;
     }
     .tip-tit{
@@ -672,7 +672,7 @@ header {
         p {
           @include responsive-font('16', 400);
           text-align: left;
-          font-family: 'MaplestoryLight';
+          font-family: 'MaplestoryLight', MaplestoryOTFLight;
           color: #7e706e;
         }
       }
@@ -794,7 +794,7 @@ header {
   }
   .sec-img {
     position: relative;
-    background: url('/src/img/sec11-main.png')no-repeat center;
+    background: url('../img/sec11-main.png')no-repeat center;
     background-size: contain;
     width: 50%;
     height: 450px;

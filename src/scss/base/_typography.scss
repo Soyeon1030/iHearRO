@@ -1,13 +1,26 @@
 
 @font-face {
   font-family: 'MaplestoryBold';
+  src: url('../font/Maplestory-OTF-Bold.otf') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MaplestoryLight';
+  src: url('../font/Maplestory-OTF-Light.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaplestoryOTFBold';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'MaplestoryLight';
+  font-family: 'MaplestoryOTFLight';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
