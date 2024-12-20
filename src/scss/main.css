@@ -920,7 +920,7 @@ header .logo.active {
 }
 @media screen and (max-width: 768px) {
   .intro .intro-logo {
-    width: 250px;
+    width: 200px;
   }
   @keyframes introLogoAnimation {
     0% {
