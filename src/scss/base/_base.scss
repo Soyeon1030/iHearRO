@@ -1,0 +1,86 @@
+// 공통
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  @include pos (relative);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: $gray-800;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+// 간격 컴포넌트
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  > * + * {
+    margin-top: var(--stack-space, #{map-get($spacing, 4)}); // 기본값 16px
+  }
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cluster-space, #{map-get($spacing, 4)}); // 기본값 16px
+}
+
+// 스타일
+.box {
+  padding: map-get($spacing, 4); // 16px
+  border-radius: 4px;
+  background-color: $background-light;
+  border: 1px solid $border-color;
+  
+  & + & {
+    margin-top: map-get($spacing, 4);
+  }
+  &--sm {
+    padding: map-get($spacing, 2); // 8px
+  }
+  &--lg {
+    padding: map-get($spacing, 6); // 32px
+  }
+}
+
+// 카드 컴포넌트
+.card {
+  &__header {
+    padding: map-get($spacing, 4);
+  }
+  &__body {
+    padding: map-get($spacing, 4);
+  }
+  &__footer {
+    padding: map-get($spacing, 4);
+  }
+  & + & {
+    margin-top: map-get($spacing, 4);
+  }
+}
+
+// 폼 컴포넌트
+.form {
+  &__group {
+    margin-bottom: map-get($spacing, 4);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__label {
+    margin-bottom: map-get($spacing, 2);
+  }
+}

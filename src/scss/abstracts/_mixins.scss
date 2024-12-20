@@ -1,0 +1,203 @@
+// 공통 박스 스타일 믹스인
+@mixin box-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  } @else if $level == 3 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 반응형 관련 mixin
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Warning: `#{$breakpoint}` 는 정의되지 않은 브레이크포인트입니다.";
+  }
+}
+
+// flex 관련 mixin
+@mixin flex ($justify: center, $align: center, $gap: 1rem, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-direction: $direction;
+}
+
+// position 관련 mixin
+@mixin pos($p: relative, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $p;
+  @if $top != null {
+    top: $top;
+  }
+  @if $right != null {
+    right: $right;
+  }
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+  @if $left != null {
+    left: $left;
+  }
+}
+@mixin absolute-center($top: 50%, $left: 50%, $transform: true) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  @if $transform {
+    transform: translate(-50%, -50%);
+  }
+}
+@mixin fixed-center($top: 50%, $left: 50%, $transform: true) {
+  position: fixed;
+  top: $top;
+  left: $left;
+  @if $transform {
+    transform: translate(-50%, -50%);
+  }
+}
+
+// padding, margin 관련 mixin
+@mixin blank ($margin-values: null, $padding-values: null) {
+  // Margin 설정
+  @if $margin-values != null {
+    @if length($margin-values) == 1 {
+      margin: nth($margin-values, 1);
+    }
+    @else if length($margin-values) == 2 {
+      margin: nth($margin-values, 1) nth($margin-values, 2);
+    }
+    @else if length($margin-values) == 3 {
+      margin: nth($margin-values, 1) nth($margin-values, 2) nth($margin-values, 3);
+    }
+    @else if length($margin-values) == 4 {
+      margin: nth($margin-values, 1) nth($margin-values, 2) nth($margin-values, 3) nth($margin-values, 4);
+    }
+  }
+  // Padding 설정
+  @if $padding-values != null {
+    @if length($padding-values) == 1 {
+      padding: nth($padding-values, 1);
+    }
+    @else if length($padding-values) == 2 {
+      padding: nth($padding-values, 1) nth($padding-values, 2);
+    }
+    @else if length($padding-values) == 3 {
+      padding: nth($padding-values, 1) nth($padding-values, 2) nth($padding-values, 3);
+    }
+    @else if length($padding-values) == 4 {
+      padding: nth($padding-values, 1) nth($padding-values, 2) nth($padding-values, 3) nth($padding-values, 4);
+    }
+  }
+}
+
+// 텍스트 관련 mixin
+@mixin ellipsis($line: 1) {
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word; 
+    line-clamp: $line;
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+// 기본 폰트 믹스인 (size와 weight 모두 지정)
+@mixin font($size, $weight: null) {
+  @if map-has-key($font-sizes, $size) {
+    font-size: map-get($font-sizes, $size);
+  } @else {
+    @error "'#{$size}'는 유효하지 않은 폰트 사이즈입니다.";
+  }
+  
+  @if $weight {
+    font-weight: $weight;
+  }
+}
+// 반응형 폰트 믹스인
+@mixin responsive-font($desktop-size, $desktop-weight: null, $laptop-size:null, $laptop-weight : null, $tablet-size: null, $tablet-weight: null, $mobile-size: null, $mobile-weight: null) {
+  // 데스크탑 스타일
+  @include font($desktop-size, $desktop-weight);
+
+  // 랩탑 스타일
+  @if $laptop-size{
+    @include respond-to('laptop') {
+      @include font($laptop-size, $laptop-size);
+    }
+  }
+  
+  // 태블릿 스타일
+  @if $tablet-size {
+    @include respond-to('tablet-l') {
+      @include font($tablet-size, $tablet-weight);
+    }
+  }
+  
+  // 모바일 스타일
+  @if $mobile-size {
+    @include respond-to('mobile') {
+      @include font($mobile-size, $mobile-weight);
+    }
+  }
+}
+//유연한 줄바꿈을 위한 믹스인
+@mixin flexible-text-break($max-width: 768px) {
+  white-space: pre-line;
+  word-break: keep-all;
+  word-wrap: break-word;
+  
+  @include respond-to('tablet-l') {
+    white-space: normal;
+  }
+}
+
+// 스페이싱 유틸리티 클래스 생성
+@each $space-key, $space-value in $spacing {
+  // margin
+  .m-#{$space-key} { margin: $space-value; }
+  .mt-#{$space-key} { margin-top: $space-value; }
+  .mb-#{$space-key} { margin-bottom: $space-value; }
+  .ml-#{$space-key} { margin-left: $space-value; }
+  .mr-#{$space-key} { margin-right: $space-value; }
+  .mx-#{$space-key} { 
+    margin-left: $space-value;
+    margin-right: $space-value;
+  }
+  .my-#{$space-key} { 
+    margin-top: $space-value;
+    margin-bottom: $space-value;
+  }
+
+  // padding
+  .p-#{$space-key} { padding: $space-value; }
+  .pt-#{$space-key} { padding-top: $space-value; }
+  .pb-#{$space-key} { padding-bottom: $space-value; }
+  .pl-#{$space-key} { padding-left: $space-value; }
+  .pr-#{$space-key} { padding-right: $space-value; }
+  .px-#{$space-key} { 
+    padding-left: $space-value;
+    padding-right: $space-value;
+  }
+  .py-#{$space-key} { 
+    padding-top: $space-value;
+    padding-bottom: $space-value;
+  }
+}
+
+// 기본 하이라이트 믹스인
+@mixin highlight-base {
+  position: relative;
+  display: inline;
+  z-index: 1;
+}
